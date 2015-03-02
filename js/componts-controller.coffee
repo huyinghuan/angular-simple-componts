@@ -7,6 +7,9 @@ define(['app',  'moment', 'sc/base-service'], (app, moment, BaseFormService)->
     timeBucket: ->
       @q({startDate: new Date(), endDate: moment()})
 
+    testTime: ->
+      @q( moment())
+
     testSelcet: ->
       @q([1,23,4])
 

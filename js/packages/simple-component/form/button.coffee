@@ -1,8 +1,6 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
-    <div class="simple-component">
-      <button type="button" name="{{name}}" class="btn btn-default">{{title}}</button>
-    </div>
+  <div class="simple-component selButton"><input type="button" value="确定"></div>
   '
   scope = bean: '=', clazz: '@', title: '@', name: '@'
 

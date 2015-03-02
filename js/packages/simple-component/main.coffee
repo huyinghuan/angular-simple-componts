@@ -9,6 +9,7 @@
     './form/input'
     './form/button'
     './date/date-range-picker'
+    './date/date-single-picker'
     './document/title-hr'
     './document/pager'
     './document/loading'

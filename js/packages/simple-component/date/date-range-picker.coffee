@@ -6,11 +6,8 @@ define [
 ], (SimpleComponent, $, _moment)->
   template = '
     <div class="simple-component seltime">
-      <span class="seltext">{{title}}</span>
-      <div class="selbg">
-        <a href=""></a>
-        <input type="text" name="{{name}}" readonly>
-      </div>
+      <span class="boxText">{{title}}</span>
+        <input class="boxInput timeon" type="text" value="1212">
     </div>'
 
   ###

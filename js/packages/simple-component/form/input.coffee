@@ -1,11 +1,8 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
-    <div class="simple-component input {{clazz}}">
-      <span class="seltext">{{title}}</span>
-      <div class="selbg">
-        <input type="text" name="{{name}}" value="{{value}}" honey-hash-bind>
-      </div>
-    </div>
+ <div class="simple-component selInput">
+      <input class="boxInput"  type="text" value="1212">
+  </div>
   '
   scope = bean: '=', clazz: '@', title: '@', name: '@', value: '@'
 

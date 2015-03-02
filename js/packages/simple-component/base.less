@@ -1,0 +1,41 @@
+
+&.simple-component {
+  font-size: 12px;
+  font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  float: left;
+  height: 28px;
+  line-height: 28px;
+  margin: 0 10px 0 0;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, button, textarea, p, blockquote, th, td, iframe {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/* 清理浮动 */
+.clearfix {
+  *zoom: 1;
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+em {
+  font-style: normal;
+}

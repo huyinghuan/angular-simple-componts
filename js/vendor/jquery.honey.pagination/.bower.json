@@ -1,0 +1,47 @@
+{
+  "name": "jquery-honey-pagination",
+  "version": "0.0.5",
+  "authors": [
+    "huyinghuan <ec.huyinghuan@gmail.com>"
+  ],
+  "description": "a jquery plugin for pagination",
+  "main": [
+    "ljquery.honey.pagination.js",
+    "package"
+  ],
+  "keywords": [
+    "pagination",
+    "honey"
+  ],
+  "dependencies": {
+    "jquery": "~1.7.2"
+  },
+  "license": "MIT",
+  "ignore": [
+    ".slow",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "index.html",
+    "index-require.html",
+    "package.json",
+    "README.md",
+    "Gruntfile.coffee"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.15"
+  },
+  "homepage": "https://github.com/huyinghuan/jquery-honey-pagination",
+  "_release": "0.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.5",
+    "commit": "513551951ac92157f3b6656f891e947049ec0a40"
+  },
+  "_source": "git://github.com/huyinghuan/jquery-honey-pagination.git",
+  "_target": "~0.0.5",
+  "_originalSource": "jquery.honey.pagination"
+}

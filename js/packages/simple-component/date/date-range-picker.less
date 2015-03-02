@@ -1,0 +1,103 @@
+.daterangepicker *:before, *:after {
+  box-sizing: border-box;
+}
+
+.dropdown-menu {
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  display: none;
+  float: left;
+  font-size: 14px;
+  left: 0;
+  list-style: none outside none;
+  margin: 2px 0 0;
+  min-width: 160px;
+  padding: 5px 0;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  z-index: 1000;
+}
+
+.daterangepicker .table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+.daterangepicker * {
+  box-sizing: border-box;
+}
+
+.daterangepicker table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.daterangepicker{
+  color: #000;
+}
+
+.daterangepicker .ranges .input-mini{
+  padding: 0 2px !important;
+}
+
+.daterangepicker td.off {
+  display: table-cell;
+}
+
+.daterangepicker .control{
+  text-align: right;
+  width: 100%;
+}
+
+.daterangepicker .ranges button{
+  -moz-user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  background: none repeat scroll 0 0 #1f8dd6;
+  border: 1px solid #1f8dd6;
+  color: #fff;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  border-radius: 2px;
+
+  &.cancelBtn{
+    background: none repeat scroll 0 0 #cccccc;
+    border: 1px solid #cccccc;
+    color: #666;
+  }
+}
+
+//日历选择器部分
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('/css/fonts/glyphicons-halflings-regular.eot');
+  src: url('/css/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/css/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/css/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/css/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-arrow-left:before {
+  content: "\e091";
+}
+.glyphicon-arrow-right:before {
+  content: "\e092";
+}

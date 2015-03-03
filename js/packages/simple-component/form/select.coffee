@@ -1,33 +1,20 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
       <div class="simple-component selectBox">
-       <div class="selBox on">  <select >
-                  <option>Volvo</option>
-                  <option>Saab</option>
-                  <option selected="selected">Opel</option>
-                  <option>Audi</option>
-                  <option >Volvo</option>
-                  <option>Saab</option>
-                  <option >Opel</option>
-                  <option>Audi</option>                <option>Volvo</option>
-                  <option>Saab</option>
-                  <option>Opel</option>
-                  <option>Audi</option>
-                  <option >Volvo</option>
-                  <option>Saab</option>
-                  <option >Opel</option>
-                  <option>Audi</option>                <option>Volvo</option>
-                  <option>Saab</option>
-                  <option>Opel</option>
-                  <option>Audi</option>
-                  <option >Volvo</option>
-                  <option>Saab</option>
-                  <option >Opel</option>
-                  <option>Audi</option>
+       <div class="selBox">
+          <select name="{{name}}" honey-hash-bind>
+            <option
+            ng-repeat="item in itemList track by $index"
+            value="{{item.value || item}}"
+            ng-selected="isDefaultOption(item)"
+            honey-hash-bind
+            >
+            {{item.name || item}}
+          </option>
          </select>
       </div>
-</div>
-      '
+    </div>
+  '
   scope =
     bean: '=', clazz: '@', title: '@', name: '@', value: '@'
 

@@ -5,6 +5,7 @@
 
   #加载其他组建
   define [
+    './form/select-analog'
     './form/select'
     './form/input'
     './form/button'

@@ -1,24 +1,37 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
-     <div class="simple-component {{clazz}}">
-      <span class="seltext">{{title}}</span>
-      <div class="selbg">
-        <select class="sellist" name="{{name}}" honey-hash-bind>
-          <option
-            ng-repeat="item in itemList track by $index"
-            value="{{item.value || item}}"
-            honey-hash-bind
-            ng-selected="isDefaultOption(item)"
-            >
-            {{item.name || item}}
-          </option>
-        </select>
+      <div class="simple-component selectBox">
+       <div class="selBox on">  <select >
+                  <option>Volvo</option>
+                  <option>Saab</option>
+                  <option selected="selected">Opel</option>
+                  <option>Audi</option>
+                  <option >Volvo</option>
+                  <option>Saab</option>
+                  <option >Opel</option>
+                  <option>Audi</option>                <option>Volvo</option>
+                  <option>Saab</option>
+                  <option>Opel</option>
+                  <option>Audi</option>
+                  <option >Volvo</option>
+                  <option>Saab</option>
+                  <option >Opel</option>
+                  <option>Audi</option>                <option>Volvo</option>
+                  <option>Saab</option>
+                  <option>Opel</option>
+                  <option>Audi</option>
+                  <option >Volvo</option>
+                  <option>Saab</option>
+                  <option >Opel</option>
+                  <option>Audi</option>
+         </select>
       </div>
-    </div>
-  '
-  scope = bean: '=', clazz: '@', title: '@', name: '@', value: '@'
+</div>
+      '
+  scope =
+    bean: '=', clazz: '@', title: '@', name: '@', value: '@'
 
-  SimpleComponent.directive('sfSelect',["$timeout", ($timeout)->
+  SimpleComponent.directive('sfSelect', ["$timeout", ($timeout)->
     restrict: 'E'
     replace: true
     template: template

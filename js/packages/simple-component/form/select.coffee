@@ -18,23 +18,30 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   scope =
     bean: '=', clazz: '@', title: '@', name: '@', value: '@'
 
-  SimpleComponent.directive('sfSelect', ["$timeout", ($timeout)->
+  SimpleComponent.directive('sfSelect', ["$timeout", "honey.utils",($timeout, honeyUtils)->
     restrict: 'E'
     replace: true
     template: template
     scope: scope
     link: ($scope, element, attr)->
       bean = $scope.bean
-
-      loadData = (params = {})->
+      bean.formChange = bean.formChange or ()->
+      $select = $(element).find("select")
+      loadData = (params = {}, flag = false)->
         bean.getList($scope.name, params).then((data)->
           $scope.itemList = data
+          if flag and data[0]
+            value = data[0].value or data[0]
+            obj = {}
+            obj[$scope.name] = value
+            bean.formChange($scope.name, value)
+            honeyUtils.setHash(obj)
         )
 
       loadData()
 
-      $(element).find("select").on("change", ()->
-        bean.formChange and bean.formChange($scope.name, $(@).val())
+      $select.on("change", ()->
+        bean.formChange($scope.name, $(@).val())
       )
 
       #默认选择器
@@ -44,7 +51,7 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
 
       $timeout(()->
         $scope.$on("sf-select:#{$scope.name}:load", (e, data)->
-          loadData(data)
+          loadData(data, true)
         )
       , 1000)
   ])

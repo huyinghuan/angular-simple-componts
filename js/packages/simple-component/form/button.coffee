@@ -1,6 +1,8 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
-  <div class="simple-component selButton"><input type="button" value="确定"></div>
+  <div class="simple-component selButton {{clazz}}">
+    <input type="button" value="{{title}}">
+  </div>
   '
   scope = bean: '=', clazz: '@', title: '@', name: '@'
 
@@ -12,7 +14,7 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
     link: ($scope, element, attr)->
       bean = $scope.bean
 
-      $(element).find("button").on('click', ->
+      $(element).find("input:button").on('click', ->
         bean.formAction($scope.name)
       )
   ])

@@ -25,7 +25,7 @@ define [
 
   scope = bean: '=', clazz: '@', title: '@', name: '@', format: "@", limit: '@'
 
-  SimpleComponent.directive('sfDatesinglepicker',[->
+  SimpleComponent.directive('sfDatesinglepicker',['honey.utils', (honeyUtils)->
     restrict: 'E'
     replace: true
     template: template
@@ -43,6 +43,9 @@ define [
             locale: local
 
           $input.daterangepicker(options, (start)->
+            obj = {}
+            obj[$scope.name] = start.format(options.format)
+            $scope.$apply -> honeyUtils.setHash(obj)
             bean.formChange and bean.formChange($scope.name, start)
           )
           $input.data('daterangepicker').setStartDate(date)

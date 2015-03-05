@@ -1,6 +1,7 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
-      <div class="simple-component selectBox">
+    <div class="simple-component selectBox">
+       <span>{{title}}</span>
        <div class="selBox">
           <select name="{{name}}" honey-hash-bind>
             <option

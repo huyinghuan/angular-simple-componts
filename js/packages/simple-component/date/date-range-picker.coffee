@@ -7,7 +7,7 @@ define [
   template = '
     <div class="simple-component seltime">
       <span class="boxText">{{title}}</span>
-      <input class="boxInput timeon" type="text">
+      <input class="boxInput timeon range" type="text">
     </div>'
 
   ###

@@ -1,7 +1,7 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
      <div class="simple-component selPull clearfix">
-        <span class="boxText">选择省份：</span>
+        <span class="boxText">{{title}}：</span>
         <div class="pullbox">
             <a href="javascript:void(0)" class="sub" ng-class="{on: open}" tabindex="1"
               ng-click="showPull()">{{itemList[0].name || itemList[0]}}</a>

@@ -3,17 +3,16 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
       <div class="simple-component selectBox">
          <span class="boxText">{{title}}</span>
          <div class="selBox">
-
- <span></span>              <select class="select" name="{{name}}" honey-hash-bind>
+            <span></span>
+            <select class="select" name="{{name}}" honey-hash-bind>
               <option
-              ng-repeat="item in itemList track by $index"
-              value="{{item.value || item}}"
-              ng-selected="isDefaultOption(item)"
-              honey-hash-bind
-              >
+                ng-repeat="item in itemList track by $index"
+                value="{{item.value || item}}"
+                ng-selected="isDefaultOption(item)"
+                honey-hash-bind>
               {{item.name || item}}
-            </option>
-           </select>
+              </option>
+            </select>
         </div>
       </div>
     '

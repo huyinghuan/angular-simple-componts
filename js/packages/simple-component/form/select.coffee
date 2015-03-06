@@ -1,25 +1,26 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
-    <div class="simple-component selectBox">
-       <span class="boxText">{{title}}</span>
-       <div class="selBox">
-          <select name="{{name}}" honey-hash-bind>
-            <option
-            ng-repeat="item in itemList track by $index"
-            value="{{item.value || item}}"
-            ng-selected="isDefaultOption(item)"
-            honey-hash-bind
-            >
-            {{item.name || item}}
-          </option>
-         </select>
+      <div class="simple-component selectBox">
+         <span class="boxText">{{title}}</span>
+         <div class="selBox">
+
+ <span></span>              <select class="select" name="{{name}}" honey-hash-bind>
+              <option
+              ng-repeat="item in itemList track by $index"
+              value="{{item.value || item}}"
+              ng-selected="isDefaultOption(item)"
+              honey-hash-bind
+              >
+              {{item.name || item}}
+            </option>
+           </select>
+        </div>
       </div>
-    </div>
-  '
+    '
   scope =
     bean: '=', clazz: '@', title: '@', name: '@', value: '@'
 
-  SimpleComponent.directive('sfSelect', ["$timeout", "honey.utils",($timeout, honeyUtils)->
+  SimpleComponent.directive('sfSelect', ["$timeout", "honey.utils", ($timeout, honeyUtils)->
     restrict: 'E'
     replace: true
     template: template

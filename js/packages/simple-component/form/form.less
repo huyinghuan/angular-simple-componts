@@ -95,14 +95,28 @@
 
 &.selectBox {
   .selBox {
+    position: relative;
     width: 140px;
     height: 26px;
     line-height: 26px;
     background: url(image/open.png) right no-repeat;
     overflow: hidden;
     border: 1px solid #ccc;
+    cursor: pointer;
     &.on {
       background: url(image/close.png) right no-repeat;
+      span {
+        background: url(image/close.png) #fff center no-repeat;
+      }
+    }
+    span {
+      display: block;
+      position: absolute;
+      z-index: 9;
+      right: 0;
+      width: 22px;
+      height: 26px;
+      background: url(image/open.png) #fff center no-repeat;
     }
     select {
       width: 140px;
@@ -113,6 +127,7 @@
       border: none;
       -webkit-appearance: none;
       outline: none;
+      cursor: pointer;
     }
   }
 }

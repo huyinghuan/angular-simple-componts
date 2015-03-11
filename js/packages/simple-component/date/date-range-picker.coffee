@@ -43,6 +43,16 @@ define [
 
   scope = bean: '=', clazz: '@', title: '@', name: '@', format: "@", limit: '@'
 
+  getDatePickerOption = (foramt = "YYYY-MM-DD", timeBucket)->
+    options =
+      ranges: ranges
+      opens: "left"
+      format: foramt
+      startDate: timeBucket.startDate
+      endDate: timeBucket.endDate
+      timePicker: true
+      locale: local
+
   SimpleComponent.directive('sfDaterangepicker',[->
     restrict: 'E'
     replace: true
@@ -51,36 +61,35 @@ define [
     link: ($scope, element, attr)->
       $input = $(element).find('input')
       bean = $scope.bean
-      bean.getData($scope.name)
-        .then((timeBucket)->
-            timeBucket = timeBucket or {startDate: new Date(), endDate: new Date()}
-        )
-        .then((timeBucket)->
-
-          options =
-            ranges: ranges
-            opens: "left"
-            format: $scope.format or "YYYY-MM-DD"
-            startDate: timeBucket.startDate
-            endDate: timeBucket.endDate
-            timePicker: true
-            locale: local
-
-          $input.daterangepicker(options, (start, end)->
-            limit = +$scope.limit
-            if not limit
-              bean.formChange and bean.formChange($scope.name, [start, end])
-              return
-
-            maxDate = moment(start).add(limit, "days").startOf('day')
-            if end.isAfter(maxDate)
-              alert "选择时期超过限制"
-              end = maxDate
-              $input.data('daterangepicker').setEndDate maxDate
-
-            bean.formChange and bean.formChange($scope.name, [start, end])
+      loadData = ()->
+        bean.getData($scope.name)
+          .then((timeBucket)->
+              timeBucket = timeBucket or {startDate: new Date(), endDate: new Date()}
           )
-          $input.data('daterangepicker').setStartDate(timeBucket.startDate)
-          $input.data('daterangepicker').setEndDate(timeBucket.endDate)
-        )
+          .then((timeBucket)->
+            options = getDatePickerOption($scope.format, timeBucket)
+            $input.daterangepicker(options, (start, end)->
+              limit = +$scope.limit
+              if not limit
+                bean.formChange and bean.formChange($scope.name, [start, end])
+                return
+
+              maxDate = moment(start).add(limit, "days").startOf('day')
+              if end.isAfter(maxDate)
+                alert "选择时期超过限制"
+                end = maxDate
+                $input.data('daterangepicker').setEndDate maxDate
+
+              bean.formChange and bean.formChange($scope.name, [start, end])
+            )
+            $input.data('daterangepicker').setStartDate(timeBucket.startDate)
+            $input.data('daterangepicker').setEndDate(timeBucket.endDate)
+          )
+
+      loadData()
+
+      $scope.$on("sf-daterangepicker:#{$scope.name}:load", (e, timeBucket)->
+        $input.data('daterangepicker').setStartDate(timeBucket.startDate) if timeBucket.startDate
+        $input.data('daterangepicker').setEndDate(timeBucket.endDate) if timeBucket.endDate
+      )
   ])

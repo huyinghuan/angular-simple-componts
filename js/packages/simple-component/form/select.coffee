@@ -17,7 +17,7 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
       </div>
     '
   scope =
-    bean: '=', clazz: '@', title: '@', name: '@', value: '@'
+    bean: '=', clazz: '@', title: '@', name: '@', value: '@', init: '@'
 
   SimpleComponent.directive('sfSelect', ["$timeout", "honey.utils", ($timeout, honeyUtils)->
     restrict: 'E'
@@ -28,18 +28,26 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
       bean = $scope.bean
       bean.formChange = bean.formChange or ()->
       $select = $(element).find("select")
+      #flag 是否第一次加载数据
       loadData = (params = {}, flag = false)->
         bean.getList($scope.name, params).then((data)->
           $scope.itemList = data
-          if flag and data[0]
-            value = data[0].value or data[0]
-            obj = {}
-            obj[$scope.name] = value
+          value = data[0].value or data[0]
+          obj = {}
+          obj[$scope.name] = value
+          #如果非初次加载 那么触发表单改变事件
+          if (not flag) and data[0]
             bean.formChange($scope.name, value)
             honeyUtils.setHash(obj)
+          else
+            value = honeyUtils.getHashObj($scope.name) or value
+            bean.initFinish($scope.name, value)
+
         )
 
-      loadData()
+      #是否主动初始化
+      if "#{$scope.init}" isnt "0"
+        loadData({}, true)
 
       $select.on("change", ()->
         bean.formChange($scope.name, $(@).val())
@@ -50,9 +58,7 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
         value = item.value or item
         value is $scope.value
 
-      $timeout(()->
-        $scope.$on("sf-select:#{$scope.name}:load", (e, data)->
-          loadData(data, true)
-        )
-      , 1000)
+      $scope.$on("sf-select:#{$scope.name}:load", (e, data, flag)->
+        loadData(data, flag)
+      )
   ])

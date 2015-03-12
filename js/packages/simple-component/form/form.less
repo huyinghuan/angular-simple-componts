@@ -99,33 +99,36 @@
     width: 140px;
     height: 26px;
     line-height: 26px;
-    background: url(image/open.png) right no-repeat;
+  //  background: url(image/open.png) right no-repeat;
     overflow: hidden;
-    border: 1px solid #ccc;
+   // border: 1px solid #ccc;
     cursor: pointer;
     float: left;
-    &.on {
-      background: url(image/close.png) right no-repeat;
-      span {
-        background: url(image/close.png) #fff center no-repeat;
-      }
-    }
-    span {
-      display: block;
-      position: absolute;
-      z-index: 9;
-      right: 0;
-      width: 22px;
-      height: 26px;
-      background: url(image/open.png) #fff center no-repeat;
-    }
+ //   &.on {
+  //    background: url(image/close.png) right no-repeat;
+  //    span {
+   //     background: url(image/close.png) #fff center no-repeat;
+   //   }
+  //  }
+  //  span {
+    //  display: block;
+   //   position: absolute;
+   //   z-index: 9;
+    //  right: 0;
+    //  width: 22px;
+    //  height: 26px;
+    //  background: url(image/open.png) #fff center no-repeat;
+  //  }
     select {
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 140px;
       height: 26px;
-      line-height: 26px;
-      background: transparent;
-      font-size: 16px;
-      border: none;
+      line-height: 26px!important;
+      background: #F0F0F0;
+ //     font-size: 12px;
+      border: 1px solid #ccc;
       -webkit-appearance: none;
       outline: none;
       cursor: pointer;

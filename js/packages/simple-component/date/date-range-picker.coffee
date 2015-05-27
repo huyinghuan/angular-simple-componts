@@ -25,8 +25,8 @@ define [
 
   ranges =
     '今天': [
-      new Date()
-      new Date()
+      _moment().startOf('day')
+      _moment().endOf('day')
     ]
     "最近七天": [
       _moment().subtract("days", 6)
@@ -41,16 +41,16 @@ define [
       _moment().endOf("month")
     ]
 
-  scope = bean: '=', clazz: '@', title: '@', name: '@', format: "@", limit: '@'
+  scope = bean: '=', clazz: '@', title: '@', name: '@', format: "@", limit: '@', timePicker: '@'
 
-  getDatePickerOption = (foramt = "YYYY-MM-DD", timeBucket)->
+  getDatePickerOption = (foramt = "YYYY-MM-DD", timeBucket, timePicker = false)->
     options =
       ranges: ranges
       opens: "left"
       format: foramt
       startDate: timeBucket.startDate
       endDate: timeBucket.endDate
-      timePicker: true
+      timePicker: timePicker
       locale: local
 
   SimpleComponent.directive('sfDaterangepicker',[->
@@ -67,7 +67,7 @@ define [
               timeBucket = timeBucket or {startDate: new Date(), endDate: new Date()}
           )
           .then((timeBucket)->
-            options = getDatePickerOption($scope.format, timeBucket)
+            options = getDatePickerOption($scope.format, timeBucket, Boolean($scope.timePicker))
             $input.daterangepicker(options, (start, end)->
               limit = +$scope.limit
               if not limit

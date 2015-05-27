@@ -1,33 +1,65 @@
-<div>
+    <br>
     <sf-title-hr title="标题"></sf-title-hr>
+
     <br>
 
-    <sf-button bean="bean" title="测试" name="testBtn"></sf-button>
+    <h3>按钮</h3>
+    <div class="demo">
+      <div class="left">
+        <pre>
+          <code>
+          </code>
+        </pre>
+      </div>
+      <div class="right">
+        <sf-button bean="bean" title="测试" name="testBtn"></sf-button>
+      </div>
+    </div>
 
+    <div class="demo">
+      <div class="left">模拟下拉选择框</div>
+      <div class="right">
+        <sf-select-analog bean="bean" name="testSelcet" title="模拟下拉选择框">
+        </sf-select-analog>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="left">下拉选择框</div>
+      <div class="right"><sf-select bean="bean" name="testSelcet" title="下拉选择框"></sf-select></div>
+    </div>
+    <div class="demo">
+      <div class="left">下拉选择框2</div>
+      <div class="right">
+        <sf-select2 bean="bean" name="testSelect2" title="下拉选择框"></sf-select2>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="left">输入框</div>
+      <div class="right"><sf-input bean="bean" name="testInput" title="shury"></sf-input></div>
+    </div>
 
+    <div class="demo">
+      <div class="left"></div>
+      <div class="right">
+        <sf-daterangepicker
+        bean="bean"
+        name="timeBucket"
+        format="YYYY-MM-DD HH:mm:ss"
+        limit="31"
+        title="时间">
+        </sf-daterangepicker>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="left"></div>
+      <div class="right">
+        <sf-datesinglepicker
+          bean="bean"
+          name="testTime"
+          format="YYYY-MM-DD HH:mm:ss"
+          limit="31"
+          title=""></sf-datesinglepicker>
+      </div>
+    </div>
 
-
-    <sf-select-analog bean="bean" name="testSelcet" title="模拟下拉选择框">
-    </sf-select-analog>
-
-    <sf-select bean="bean" name="testSelcet" title="下拉选择框"></sf-select>
-
-    <!--<sf-loading></sf-loading>-->
-    <sf-input bean="bean" name="testInput" title="shury"></sf-input>
-
-
-
-    <sf-daterangepicker
-            bean="bean"
-            name="timeBucket"
-            format="YYYY-MM-DD HH:mm:ss"
-            limit="31"
-            title="时间"></sf-daterangepicker>
-
-    <sf-datesinglepicker
-            bean="bean"
-            name="testTime"
-            format="YYYY-MM-DD HH:mm:ss"
-            limit="31"
-            title=""></sf-datesinglepicker>
 </div>

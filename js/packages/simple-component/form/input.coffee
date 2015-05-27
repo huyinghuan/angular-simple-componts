@@ -1,6 +1,6 @@
 define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
- <div class="simple-component selInput">
+  <div class="simple-component selInput">
       <span class="boxText">{{title}}</span>
       <input class="boxInput"  type="text" value="{{value}}" placeholder="{{placeholder}}">
   </div>

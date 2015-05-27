@@ -17,7 +17,8 @@ requirejs.config({
     moment: 'vendor/moment/moment',
    // echarts: 'vendor/echarts',
     'jquery.honey.pagination': 'vendor/jquery.honey.pagination/jquery.honey.pagination',
-    'angular-bind-hash': "vendor/angular-bind-hash/angular-bind-hash"
+    'angular-bind-hash': "vendor/angular-bind-hash/angular-bind-hash",
+    'select2': 'vendor/select2/dist/js/select2'
   },
   shim: {
     angular: {

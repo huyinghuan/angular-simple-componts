@@ -99,26 +99,9 @@
     width: 140px;
     height: 26px;
     line-height: 26px;
-  //  background: url(image/open.png) right no-repeat;
     overflow: hidden;
-   // border: 1px solid #ccc;
     cursor: pointer;
     float: left;
- //   &.on {
-  //    background: url(image/close.png) right no-repeat;
-  //    span {
-   //     background: url(image/close.png) #fff center no-repeat;
-   //   }
-  //  }
-  //  span {
-    //  display: block;
-   //   position: absolute;
-   //   z-index: 9;
-    //  right: 0;
-    //  width: 22px;
-    //  height: 26px;
-    //  background: url(image/open.png) #fff center no-repeat;
-  //  }
     select {
       position: absolute;
       left: 0;
@@ -127,13 +110,20 @@
       height: 26px;
       line-height: 26px!important;
       background: #F0F0F0;
- //     font-size: 12px;
       border: 1px solid #ccc;
-      -webkit-appearance: none;
       outline: none;
       cursor: pointer;
     }
   }
 }
-
-//selectBox css end
+.select2-container{
+  padding-bottom: 1px;
+  .select2-selection--single{
+    height:26px
+  }
+}
+.select2-container--default .select2-selection--single{
+  border-radius: 0px;
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}

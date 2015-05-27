@@ -1,11 +1,12 @@
 define ['SimpleComponent'], (SimpleComponent)->
   template = '
    <div class="simple-component selTitle">
-    <h2>标题</h2><hr/>
+    <h2>{{title || titleParent}}</h2>
+    <hr ng-if="!hidehr"/>
     </div>
   '
   scope =
-    clazz: '@', title: '@'
+    clazz: '@', title: '@', hidehr: '@', titleParent: '='
 
   SimpleComponent.directive('sfTitleHr', [->
     restrict: 'E'

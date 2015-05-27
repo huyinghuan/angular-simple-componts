@@ -5,18 +5,10 @@
 
   #加载其他组建
   define [
-    './form/select-analog'
-    './form/select'
-    './form/input'
-    './form/button'
-    './date/date-range-picker'
-    './date/date-single-picker'
-    './document/title-hr'
-#    './document/pager'
-#    './document/loading'
-#    './chart/line-surface'
-#    './chart/stacked-area'
-#    './chart/pie'
+    './form/index'
+    './date/index'
+    './document/index'
+    './chart/index'
   ], ()->
 
 )(define, require)

@@ -45,7 +45,6 @@ define [
           $input.daterangepicker(options, (start)->
             obj = {}
             obj[$scope.name] = start.format(options.format)
-            $scope.$apply -> honeyUtils.setHash(obj)
             bean.formChange and bean.formChange($scope.name, start)
           )
           $input.data('daterangepicker').setStartDate(date)

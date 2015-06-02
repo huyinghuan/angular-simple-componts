@@ -23,7 +23,7 @@ define ['SimpleComponent', 'jquery', 'select2'], (SimpleComponent, $, select2)->
       #flag 是否第一次加载数据
       loadData = (params = {}, flag = false)->
         bean.getList($scope.name, params).then((data)->
-          setSelectData(data)
+          setSelectData(data, flag)
           value = $scope.getValue(data[0])
           obj = {}
           obj[$scope.name] = value
@@ -32,7 +32,7 @@ define ['SimpleComponent', 'jquery', 'select2'], (SimpleComponent, $, select2)->
           if (not flag) and data[0]
             bean.formChange($scope.name, value)
             honeyUtils.setHash(obj)
-          #首次加载数据
+#首次加载数据
           else
             hashValue = honeyUtils.getHashObj($scope.name)
             #查看当前hash的值是否存在于数组, 如果存在数组里面, 那么使用该hash值,如果不存在,则设为null
@@ -52,13 +52,18 @@ define ['SimpleComponent', 'jquery', 'select2'], (SimpleComponent, $, select2)->
       #是否主动初始化
       loadData({}, true) if "#{$scope.init}" isnt "0"
 
-      setSelectData = (data)->
+      setSelectData = (data, flag)->
         queue = []
         for item in data
           queue.push({
             id: if item?.value? then item.value else item
             text: if item.name? then item.name else item
           })
+
+        if not flag
+          $select.select2("destroy")
+          $select.html("")
+
         $select.select2(data: queue)
 
       $scope.$on("sf-select2:#{$scope.name}:load", (e, data, flag)->

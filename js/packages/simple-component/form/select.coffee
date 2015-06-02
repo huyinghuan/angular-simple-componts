@@ -1,4 +1,4 @@
-define ['SimpleComponent', 'jquery', 'lodash'], (SimpleComponent, $)->
+define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
   template = '
       <div class="simple-component selectBox {{clazz}}">
          <span class="boxText">{{title}}</span>
@@ -38,7 +38,6 @@ define ['SimpleComponent', 'jquery', 'lodash'], (SimpleComponent, $)->
           #如果非初次加载数据, 那么使用第一个值为select默认值, 接着触发表单改变事件
           if (not flag) and data[0]
             bean.formChange($scope.name, value)
-            honeyUtils.setHash(obj)
           #首次加载数据
           else
             hashValue = honeyUtils.getHashObj($scope.name)

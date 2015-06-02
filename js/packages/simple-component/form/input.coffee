@@ -15,7 +15,12 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
     link: ($scope, element, attr)->
       bean = $scope.bean
       bean.getData($scope.name).then((data)->
-        $scope.value = if not data? then "" else data
+        #服务器默认值
+        remoteValue = if not data? then "" else data
+        #hash默认值
+        hashValue = honeyUtils.getHashObj($scope.name)
+        $scope.value = hashValue or $scope.value or remoteValue
+        bean.initFinish($scope.name, $scope.value)
       )
 
       $(element).find("input").on("keyup", (e)->
@@ -23,12 +28,10 @@ define ['SimpleComponent', 'jquery'], (SimpleComponent, $)->
           e.preventDefault()
           obj = {}
           obj[$scope.name] = $(@).val()
-          honeyUtils.setHash(obj)
           bean.formChange and bean.formChange($scope.name, $(@).val())
       ).blur(()->
         obj = {}
         obj[$scope.name] = $(@).val()
-        honeyUtils.setHash(obj)
         bean.formChange and bean.formChange($scope.name, $(@).val())
       )
 
